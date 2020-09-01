@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SpriteStudioProject version="2.00.01" edition="Professional">
+<SpriteStudioProject version="2.00.01" edition="Personal">
 	<name>choro_anime</name>
 	<exportPath></exportPath>
 	<settings>
@@ -181,12 +181,12 @@
 		<value>choro_anime.ssae</value>
 	</animepackNames>
 	<lastAnimeFile>choro_anime.ssae</lastAnimeFile>
-	<lastAnimeName>Setup</lastAnimeName>
+	<lastAnimeName>anime_stand_walk</lastAnimeName>
 	<lastPart></lastPart>
 	<lastCellMapFile>choro_anime.ssce</lastCellMapFile>
-	<lastCell>mouth_1</lastCell>
+	<lastCell>foot_f__kansetsu_L</lastCell>
 	<lastEffectFile></lastEffectFile>
-	<setupmode>1</setupmode>
+	<setupmode>0</setupmode>
 	<expandAnimation />
 	<expandSequence />
 </SpriteStudioProject>
