@@ -15,7 +15,7 @@
 		<exportCellMap>0</exportCellMap>
 		<copyImageWhenExportCellmap>1</copyImageWhenExportCellmap>
 		<ssConverterOptions></ssConverterOptions>
-		<player>any</player>
+		<player>SS6PlayerForUnity</player>
 		<signal></signal>
 		<strictVer4>0</strictVer4>
 		<dontUseMatrixForTransform>0</dontUseMatrixForTransform>
