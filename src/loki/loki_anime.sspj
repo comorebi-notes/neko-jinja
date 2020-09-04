@@ -179,18 +179,18 @@
 		<padding>1</padding>
 	</texPackSettings>
 	<cellmapNames>
-		<value>choro_anime.ssce</value>
+		<value>loki_anime.ssce</value>
 	</cellmapNames>
 	<animepackNames>
-		<value>choro_anime.ssae</value>
+		<value>loki_anime.ssae</value>
 	</animepackNames>
-	<lastAnimeFile>choro_anime.ssae</lastAnimeFile>
-	<lastAnimeName>anime_sit_sleep</lastAnimeName>
-	<lastPart></lastPart>
-	<lastCellMapFile>choro_anime.ssce</lastCellMapFile>
-	<lastCell>body_front</lastCell>
+	<lastAnimeFile>loki_anime.ssae</lastAnimeFile>
+	<lastAnimeName>Setup</lastAnimeName>
+	<lastPart>foot_f_L_2</lastPart>
+	<lastCellMapFile>loki_anime.ssce</lastCellMapFile>
+	<lastCell>foot_f_L</lastCell>
 	<lastEffectFile></lastEffectFile>
-	<setupmode>0</setupmode>
+	<setupmode>1</setupmode>
 	<expandAnimation />
 	<expandSequence />
 </SpriteStudioProject>
