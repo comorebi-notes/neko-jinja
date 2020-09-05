@@ -70,10 +70,10 @@ public class CharacterControl : MonoBehaviour {
         m_SW = !m_SW;
         m_Count = 0;
       }
-      if (Input.GetKeyDown(KeyCode.Space) == true ) {
+      // if (Input.GetKeyDown(KeyCode.Space) == true ) {
         AnimationStart();   // アニメーション開始処理(設定)
         m_Step = Step.Wait;
-      }
+      // }
       break;
 
     // 待機
