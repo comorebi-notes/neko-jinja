@@ -136,7 +136,7 @@ public class CharacterControl : MonoBehaviour {
       if (m_SW == true) {
         styleState.textColor = Color.black; // 文字色 黒 
         guiStyle.normal = styleState; // スタイルの設定。
-        GUI.Label(new Rect(420, 180, 100, 50), "PRESS SPACE", guiStyle);
+        // GUI.Label(new Rect(420, 180, 100, 50), "PRESS SPACE", guiStyle);
       }
       break;
     default:
