@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using TouchScript.Gestures;
 
 public class CharacterControl : MonoBehaviour {
   // 再生アニメーションのResourcesフォルダ内のサブパス
   [SerializeField]
-  public Object[] animationList;
+  public UnityEngine.Object[] animationList;
   public float walkSpeed;
 
   // キャラクター管理用 
@@ -16,9 +18,9 @@ public class CharacterControl : MonoBehaviour {
 
   // 再生アニメーション指定用 
   private enum AnimationPattern : int {
-    Wait = 7,   // 待機 
-    Walk = 6,   // 歩き
-    Stretch = 4 // のび
+    Wait    = 7, // 待機 
+    Walk    = 6, // 歩き
+    Stretch = 4  // のび
   }
 
   // 処理ステップ用 
@@ -26,7 +28,7 @@ public class CharacterControl : MonoBehaviour {
     Init,   // 初期化 
     Wait,   // 待機 
     Walk,   // 移動 
-    Stretch // 攻撃
+    Stretch // のび
   }
 
   // 処理ステップ管理用 
@@ -43,6 +45,16 @@ public class CharacterControl : MonoBehaviour {
     _vecCharacterScale.x = 0.16f;
     _vecCharacterScale.y = 0.16f;
     _vecCharacterScale.z = 1.0f;
+
+    GetComponent<TapGesture>().Tapped += (object sender, EventArgs e) => HandleStretch();
+    GetComponent<FlickGesture>().Flicked += (object sender, EventArgs e) => {
+      var gesture = sender as FlickGesture;
+      if (gesture.ScreenFlickVector.x < 0) {
+        HandleWalkLeft();
+      } else if (gesture.ScreenFlickVector.x > 0) {
+        HandleWalkRight();
+      }
+    };
   }
 
   // Update is called once per frame
@@ -57,23 +69,11 @@ public class CharacterControl : MonoBehaviour {
     // 待機
     case State.Wait:
       if (Input.GetKeyDown(KeyCode.Z)) {
-        // 攻撃
-        AnimationChange(AnimationPattern.Stretch);
-        _currentState = State.Stretch;
-
+        HandleStretch(); // のび
       } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-        // 左移動
-        if (_vecCharacterScale.x < 0) _vecCharacterScale.x *= -1;
-        _goCharacterPosition.transform.localScale = _vecCharacterScale; 
-        AnimationChange(AnimationPattern.Walk);
-        _currentState = State.Walk;
-
+        HandleWalkLeft(); // 左移動
       } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-        // 右移動
-        if (_vecCharacterScale.x > 0) _vecCharacterScale.x *= -1;
-        _goCharacterPosition.transform.localScale = _vecCharacterScale;
-        AnimationChange(AnimationPattern.Walk);
-        _currentState = State.Walk;
+        HandleWalkRight(); // 右移動
       }
       break;
 
@@ -108,6 +108,31 @@ public class CharacterControl : MonoBehaviour {
     default:
       break;
     }
+  }
+
+  private void HandleStretch() {
+    if (_currentState != State.Wait) return;
+
+    AnimationChange(AnimationPattern.Stretch);
+    _currentState = State.Stretch;
+  }
+
+  private void HandleWalkLeft() {
+    if (_currentState != State.Wait) return;
+
+    if (_vecCharacterScale.x < 0) _vecCharacterScale.x *= -1;
+    _goCharacterPosition.transform.localScale = _vecCharacterScale; 
+    AnimationChange(AnimationPattern.Walk);
+    _currentState = State.Walk;
+  }
+
+  private void HandleWalkRight() {
+    if (_currentState != State.Wait) return;
+
+    if (_vecCharacterScale.x > 0) _vecCharacterScale.x *= -1;
+    _goCharacterPosition.transform.localScale = _vecCharacterScale;
+    AnimationChange(AnimationPattern.Walk);
+    _currentState = State.Walk;
   }
 
   // アニメーション開始 
