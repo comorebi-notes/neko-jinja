@@ -44,6 +44,7 @@ namespace Baum2.Editor
             }
             if (files.Length == 0)
             {
+                Debug.Log(fileName);
                 throw new System.ApplicationException(string.Format("{0}ファイルがプロジェクト内に存在しません。", fileName));
             }
             string path = files[0];
