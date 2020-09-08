@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using TouchScript.Gestures;
 
-public class CharacterControl : MonoBehaviour {
+public class CharacterControl1 : MonoBehaviour {
   // 再生アニメーションのResourcesフォルダ内のサブパス
   [SerializeField]
   public UnityEngine.Object[] animationList;
@@ -37,7 +37,7 @@ public class CharacterControl : MonoBehaviour {
   // Use this for initialization
   private void Start () {
     // 座標設定 
-    _vecCharacterPosition.x = 0.0f;
+    _vecCharacterPosition.x = -30.0f;
     _vecCharacterPosition.y = -72.0f;
     _vecCharacterPosition.z = 0.0f;
 

@@ -2280,6 +2280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915884605}
   - component: {fileID: 1915884604}
+  - component: {fileID: 1915884609}
   - component: {fileID: 1915884606}
   - component: {fileID: 1915884608}
   - component: {fileID: 1915884607}
@@ -2304,7 +2305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationList:
   - {fileID: 1595687940060271078, guid: fdce22b5c84c4466c9330ae89504058c, type: 3}
-  walkSpeed: 0.16
+  walkSpeed: 0.18
 --- !u!4 &1915884605
 Transform:
   m_ObjectHideFlags: 0
@@ -2402,3 +2403,18 @@ MonoBehaviour:
   minDistance: 1
   movementThreshold: 0.5
   direction: 1
+--- !u!114 &1915884609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915884603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9195606ba44048829898c8f4fe0d8bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationList:
+  - {fileID: 6639752196658932274, guid: bc94d95fa278c4aef892198039b05f57, type: 3}
+  walkSpeed: 0.18
