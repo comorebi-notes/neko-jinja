@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using TouchScript.Gestures;
 
-public class CharacterControl1 : MonoBehaviour {
+public class CharacterControl2 : MonoBehaviour {
   // 再生アニメーションのResourcesフォルダ内のサブパス
   [SerializeField]
   public UnityEngine.Object[] animationList;
@@ -20,7 +20,7 @@ public class CharacterControl1 : MonoBehaviour {
   private enum AnimationPattern : int {
     Wait    = 7, // 待機 
     Walk    = 6, // 歩き
-    Stretch = 4  // のび
+    Stretch = 3  // のび
   }
 
   // 処理ステップ用 
@@ -37,7 +37,7 @@ public class CharacterControl1 : MonoBehaviour {
   // Use this for initialization
   private void Start () {
     // 座標設定 
-    _vecCharacterPosition.x = -30.0f;
+    _vecCharacterPosition.x = 30.0f;
     _vecCharacterPosition.y = -72.0f;
     _vecCharacterPosition.z = 0.0f;
 
@@ -46,15 +46,15 @@ public class CharacterControl1 : MonoBehaviour {
     _vecCharacterScale.y = 0.16f;
     _vecCharacterScale.z = 1.0f;
 
-    GetComponent<TapGesture>().Tapped += (object sender, EventArgs e) => HandleStretch();
-    GetComponent<FlickGesture>().Flicked += (object sender, EventArgs e) => {
-      var gesture = sender as FlickGesture;
-      if (gesture.ScreenFlickVector.x < 0) {
-        HandleWalkLeft();
-      } else if (gesture.ScreenFlickVector.x > 0) {
-        HandleWalkRight();
-      }
-    };
+    // GetComponent<TapGesture>().Tapped += (object sender, EventArgs e) => HandleStretch();
+    // GetComponent<FlickGesture>().Flicked += (object sender, EventArgs e) => {
+    //   var gesture = sender as FlickGesture;
+    //   if (gesture.ScreenFlickVector.x < 0) {
+    //     HandleWalkLeft();
+    //   } else if (gesture.ScreenFlickVector.x > 0) {
+    //     HandleWalkRight();
+    //   }
+    // };
   }
 
   // Update is called once per frame
@@ -68,11 +68,11 @@ public class CharacterControl1 : MonoBehaviour {
 
     // 待機
     case State.Wait:
-      if (Input.GetKeyDown(KeyCode.Z)) {
+      if (Input.GetKeyDown(KeyCode.X)) {
         HandleStretch(); // のび
-      } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+      } else if (Input.GetKeyDown(KeyCode.UpArrow)) {
         HandleWalkLeft(); // 左移動
-      } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+      } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
         HandleWalkRight(); // 右移動
       }
       break;
@@ -81,11 +81,11 @@ public class CharacterControl1 : MonoBehaviour {
     case State.Walk:
       var screenWidthHalf = Screen.width / 2;
 
-      if (Input.GetKey(KeyCode.LeftArrow)) {
+      if (Input.GetKey(KeyCode.UpArrow)) {
         // 左移動
         if (_vecCharacterPosition.x > -screenWidthHalf) _vecCharacterPosition.x -= walkSpeed;
 
-      } else if (Input.GetKey(KeyCode.RightArrow)) {
+      } else if (Input.GetKey(KeyCode.DownArrow)) {
         // 右移動 
         if (_vecCharacterPosition.x < screenWidthHalf) _vecCharacterPosition.x += walkSpeed;
 
