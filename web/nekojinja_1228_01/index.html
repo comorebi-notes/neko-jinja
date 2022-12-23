@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns#">
+	<meta charset="utf-8">
+	<meta name="authoring-tool" content="Adobe_Animate_CC">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<title>猫神社🐈</title>
+	<meta name="description" content="【ページの説明】">
+
+	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+	<script src="neko_jinja.min.js?7814615713"></script>
+	<script src="index.js?7814615713"></script>
+	<link rel="stylesheet" href="index.css?7814615713">
+
+	<link rel="icon" href="favicon.ico?7814615713">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="manifest" href="manifest.webmanifest">
+
+	<meta property="fb:app_id" content="697345281792169">
+	<meta property="og:url" content="https://neko-jinja.com/">
+	<meta property="og:title" content="猫神社">
+	<meta property="og:description" content="【ページの説明】">
+	<meta property="og:image" content="https://neko-jinja.com/images/ogp/ogp.png?7814615713">
+	<meta property="og:site_name" content="猫神社">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ja_JP">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:description" content="【ページの説明】">
+	<meta name="twitter:image" content="https://neko-jinja.com/images/ogp/ogp.png?7814615713">
+</head>
+<body onload="init()">
+	<div class="container-wrapper">
+		<div id="animation_container" style="background-color: #fff; width: 1080px; height: 1840px">
+			<canvas id="canvas" width="1080" height="1840" style="display: none; background-color: #fff"></canvas>
+			<div id="dom_overlay_container" style="pointer-events: none; overflow: hidden; width: 1080px; height: 1840px; position: absolute; left: 0; top: 0; display: none;">
+			</div>
+		</div>
+	</div>
+	<div id="_preload_div_">
+		<div class="preload-text-wrapper">
+			<img src="loading/text.png" alt="Loading..." class="preload-text">
+		</div>
+		<div class="preload-bar" style="width: 0"></div>
+		<img src="loading/icon.png" alt="" class="preload-icon">
+	</div>
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyCo19jD7dDWzrI8syQEqnTPu0aSbwLoZAE",
+			authDomain: "neko-jinja.firebaseapp.com",
+			projectId: "neko-jinja",
+			storageBucket: "neko-jinja.appspot.com",
+			messagingSenderId: "683953842120",
+			appId: "1:683953842120:web:403f2ab5caf0f7ff02c2fd",
+			measurementId: "G-MQWQQNGKFK"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script>
+</body>
+</html>

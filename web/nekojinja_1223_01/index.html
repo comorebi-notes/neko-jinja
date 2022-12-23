@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>nekojinja_1223_01</title>
+<!-- write your code here -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="nekojinja_1223_01.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("03685F9155A267429EF77FAEE7A78EF9");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){(handleComplete(evt,comp))});
+	loader.addEventListener("progress", function(evt){handleProgress(evt)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+}
+function handleComplete(evt,comp) {
+	setTimeout(function() {
+		//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+		var lib=comp.getLibrary();
+		var ss=comp.getSpriteSheet();
+		var queue = evt.target;
+		var ssMetadata = lib.ssMetadata;
+		for(i=0; i<ssMetadata.length; i++) {
+			ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+		}
+		var preloaderDiv = document.getElementById("_preload_div_");
+		preloaderDiv.style.display = 'none';
+		canvas.style.display = 'block';
+		exportRoot = new lib.nekojinja();
+		stage = new lib.Stage(canvas);
+		stage.enableMouseOver();
+		//Registers the "tick" event listener.
+		fnStartAnimation = function() {
+			stage.addChild(exportRoot);
+			createjs.Ticker.framerate = lib.properties.fps;
+			createjs.Ticker.addEventListener("tick", stage);
+		}
+		//Code to support hidpi screens and responsive scaling.
+		AdobeAn.makeResponsive(true,'both',true,1,[canvas,preloaderDiv,anim_container,dom_overlay_container]);
+		AdobeAn.compositionLoaded(lib.properties.id);
+		fnStartAnimation();
+	}, 600)
+}
+function handleProgress(evt){
+	const preloadBar = document.querySelector('.preload-bar');
+	preloadBar.style.width = `${String(Math.floor(evt.loaded * 100))}%`;
+	// .innerHTML = String(Math.floor(evt.loaded*100))+"% Loaded.";
+}
+function playSound(id, loop, offset) {
+	return createjs.Sound.play(id, {'interrupt':createjs.Sound.INTERRUPT_EARLY, 'loop': loop, 'offset': offset});}
+</script>
+<!-- write your code here -->
+
+<style>
+  html, body {
+    width: 100%;
+    overflow: hidden;
+  }
+  #dom_overlay_container, #canvas, #animation_container {
+    width: 100% !important;
+    height: auto !important;
+  }
+	#_preload_div_ {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		height: 100dvh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fffdec;
+	}
+	.preload-text-wrapper {
+		position: absolute;
+		top: calc(50% - 132px);
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.preload-text {
+		animation: floating-text 1s ease-in-out infinite;
+	}
+	@keyframes floating-text {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+	.preload-bar {
+		position: absolute;
+		top: calc(50% - 16px);
+		left: 0;
+		height: 32px;
+		background-image: url("./loading/bar_bg.png");
+		background-size: 1px 100%;
+		background-position: center center;
+		background-repeat: repeat-x;
+		transition: all .6s ease-in-out;
+	}
+	.preload-icon {
+		position: relative;
+		z-index: 2;
+	}
+</style>
+</head>
+<body onload="init()" style="margin: 0">
+	<div id="animation_container" style="background-color: #fff; width: 1080px; height: 1840px">
+		<canvas id="canvas" width="1080" height="1840" style="position: absolute; display: none; background-color: #fff"></canvas>
+		<div id="dom_overlay_container" style="pointer-events: none; overflow: hidden; width: 1080px; height: 1840px; position: absolute; left: 0; top: 0; display: none;">
+		</div>
+	</div>
+	<div id="_preload_div_">
+		<div class="preload-text-wrapper">
+			<img src="loading/text.png" alt="Loading..." class="preload-text">
+		</div>
+		<div class="preload-bar" style="width: 0"></div>
+		<img src="loading/icon.png" alt="" class="preload-icon">
+	</div>
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyCo19jD7dDWzrI8syQEqnTPu0aSbwLoZAE",
+			authDomain: "neko-jinja.firebaseapp.com",
+			projectId: "neko-jinja",
+			storageBucket: "neko-jinja.appspot.com",
+			messagingSenderId: "683953842120",
+			appId: "1:683953842120:web:403f2ab5caf0f7ff02c2fd",
+			measurementId: "G-MQWQQNGKFK"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script>
+</body>
+</html>
