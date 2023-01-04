@@ -130,6 +130,7 @@ html, body {
 .main-container__inner__omikuji--10 { background-image: url("images/result/omikuji_10.png") }
 .main-container__inner__omikuji--11 { background-image: url("images/result/omikuji_11.png") }
 .main-container__inner__omikuji--12 { background-image: url("images/result/omikuji_12.png") }
+.main-container__inner__omikuji--13 { background-image: url("images/result/omikuji_13.png") }
 .main-container__inner__omikuji__part-1 { background-position: 100% 0; }
 .main-container__inner__omikuji__part-2 { background-position: 100% calc(var(--omikuji-block-height) * -1); }
 .main-container__inner__omikuji__part-3 { background-position: 100% calc(var(--omikuji-block-height) * -2); }
