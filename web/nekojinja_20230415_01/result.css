@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+:root {
+  --omikuji-block-height: calc((100vh * 1080 / 1840) * .2005);
+  --animation-ease-out-custom: cubic-bezier(0.010, 0.275, 0.050, 1.000);
+}
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+html, body {
+  width: 100%;
+  overflow: hidden;
+  background-color: #262220;
+}
+.main-container {
+  position: relative;
+  width: calc(100vh * 1080 / 1840);
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.main-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/result/common/bg.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: fadein-delay 1.4s ease-in-out 0s both;
+}
+.main-container__bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  margin: 0 auto;
+  background-image: url("images/result/common/bg_overlay.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  animation: fadein-delay .8s ease-in-out 2.4s both;
+}
+.main-container__neko-name {
+  position: absolute;
+  top: 0;
+  right: -1.4%;
+  z-index: 2;
+  width: 18%;
+  margin-top: -1.4%;
+  animation: fadein-delay .4s ease-in-out 1.8s both;
+}
+.main-container__neko-name__wrapper {
+  margin-bottom: 0;
+}
+.main-container__neko {
+  position: absolute;
+  top: 6%;
+  left: -4%;
+  z-index: 2;
+  width: 60%;
+  opacity: .8;
+  animation: fadein-delay-08 .4s ease-in-out 1.8s both;
+}
+.main-container__inner__wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.main-container__inner {
+  position: relative;
+  z-index: 5;
+  width: calc((100vh * 1080 / 1840) * .59);
+  height: calc((100vh * 1080 / 1840) * 2.5);
+  padding-top: 12%;
+  margin: 0 auto;
+}
+.main-container__inner__omikuji__container {
+  perspective: 800px;
+  perspective-origin: top center;
+  border-radius: 4px;
+  animation: float-omikuji .8s ease-in-out 1.8s both;
+}
+.main-container__inner__omikuji__wrapper {
+  position: relative;
+  perspective: 800px;
+  perspective-origin: 50% 25%;
+  animation: open-omikuji 1.4s var(--animation-ease-out-custom) .4s both;
+  will-change: transform;
+}
+.main-container__inner__omikuji__wrapper--start {
+  transform: rotate3d(1, 0, 0, -90deg);
+  transform-origin: 50% 0;
+}
+.main-container__inner__omikuji__wrapper--odd {
+  transform: rotate3d(1, 0, 0, 180deg);
+  transform-origin: 50% 0;
+}
+.main-container__inner__omikuji__wrapper--even {
+  transform: rotate3d(1, 0, 0, -180deg);
+  transform-origin: 50% 0;
+}
+.main-container__inner__omikuji {
+  position: relative;
+  width: 100%;
+  height: var(--omikuji-block-height);
+  background-size: 100% auto;
+  animation: fix-bug-for-transition .1s var(--animation-ease-out-custom) 1.8s both;
+}
+.main-container__inner__omikuji--01 { background-image: url("images/result/omikuji_01.png") }
+.main-container__inner__omikuji--02 { background-image: url("images/result/omikuji_02.png") }
+.main-container__inner__omikuji--03 { background-image: url("images/result/omikuji_03.png") }
+.main-container__inner__omikuji--04 { background-image: url("images/result/omikuji_04.png") }
+.main-container__inner__omikuji--05 { background-image: url("images/result/omikuji_05.png") }
+.main-container__inner__omikuji--06 { background-image: url("images/result/omikuji_06.png") }
+.main-container__inner__omikuji--07 { background-image: url("images/result/omikuji_07.png") }
+.main-container__inner__omikuji--08 { background-image: url("images/result/omikuji_08.png") }
+.main-container__inner__omikuji--09 { background-image: url("images/result/omikuji_09.png") }
+.main-container__inner__omikuji--10 { background-image: url("images/result/omikuji_10.png") }
+.main-container__inner__omikuji--11 { background-image: url("images/result/omikuji_11.png") }
+.main-container__inner__omikuji--12 { background-image: url("images/result/omikuji_12.png") }
+.main-container__inner__omikuji--13 { background-image: url("images/result/omikuji_13.png") }
+.main-container__inner__omikuji__part-1 { background-position: 100% 0; }
+.main-container__inner__omikuji__part-2 { background-position: 100% calc(var(--omikuji-block-height) * -1); }
+.main-container__inner__omikuji__part-3 { background-position: 100% calc(var(--omikuji-block-height) * -2); }
+.main-container__inner__omikuji__part-4 { background-position: 100% calc(var(--omikuji-block-height) * -3); }
+.main-container__inner__omikuji__part-5 { background-position: 100% calc(var(--omikuji-block-height) * -4); }
+.main-container__inner__omikuji__part-6 { background-position: 100% calc(var(--omikuji-block-height) * -5); }
+.main-container__inner__omikuji__part-7 { background-position: 100% calc(var(--omikuji-block-height) * -6); }
+.main-container__inner__omikuji__part-8 { background-position: 100% calc(var(--omikuji-block-height) * -7); }
+.main-container__inner__omikuji__part-2:after,
+.main-container__inner__omikuji__part-4:after,
+.main-container__inner__omikuji__part-6:after,
+.main-container__inner__omikuji__part-8:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 8, 0, .2);
+  animation: open-omikuji-shadow 1s ease-out .8s both;
+  will-change: background-color;
+}
+@keyframes open-omikuji { to { transform: rotate3d(1, 0, 0, 0) } }
+@keyframes open-omikuji-shadow { to { background-color: rgba(0, 0, 0, 0) } }
+@keyframes float-omikuji {
+  from { box-shadow: 0 0 0 rgba(64, 24, 0, 0) }
+  to { box-shadow: 0 0 8px rgba(64, 24, 0, .5) }
+}
+@keyframes fix-bug-for-transition {
+  from { transform: translateZ(1px) }
+  to { transform: translateZ(0) }
+}
+@keyframes fadein-delay {
+  0% { display: none; opacity: 0 }
+  1% { display: block; opacity: 0 }
+  100% { opacity: 1 }
+}
+@keyframes fadein-delay-08 {
+  0% { display: none; opacity: 0 }
+  1% { display: block; opacity: 0 }
+  100% { opacity: .8 }
+}
+.main-container__inner__neko {
+  position: absolute;
+  bottom: 0;
+  right: 4%;
+  z-index: 10;
+  width: 32%;
+  margin-bottom: 26%;
+  animation: fadein-delay .8s ease-in-out 2.4s both;
+  pointer-events: none;
+}
+.main-container__inner__credit {
+  font-family: 'RocknRoll One', sans-serif;
+  font-feature-settings: "palt";
+  color: #564240;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: .1em;
+  text-shadow: 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff, 0 0 0.28em #fff;
+  margin-top: 3.2rem;
+  animation: fadein-delay .8s ease-in-out 2.4s both;
+}
+.main-container__inner__credit__text {
+  margin-bottom: .8rem;
+}
+.main-container__inner__credit__text a {
+  color: #d23332;
+}
+.main-container__inner__credit small {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.main-container__buttons {
+  position: absolute;
+  bottom: 0;
+  left: 3%;
+  z-index: 8;
+  width: 94%;
+  height: auto;
+  padding-bottom: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein-delay .8s ease-in-out 2.4s both;
+}
+.main-container__buttons__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  transition: all .2s ease-in-out;
+}
+.main-container__buttons__item img {
+  width: 94%;
+}
+.main-container__buttons__item:hover,
+.main-container__buttons__item:active,
+.main-container__buttons__item:focus {
+  opacity: .8;
+  top: .4rem;
+}
+@media screen and (max-width: 640px) {
+  :root {
+    --omikuji-block-height: 20.54vw;
+  }
+  .main-container {
+    width: 100%;
+  }
+  .main-container__neko-name {
+    right: -1.2vw;
+    width: 18vw;
+  }
+  .main-container__neko {
+    left: -3.6vw;
+    width: 60vw;
+  }
+  .main-container__inner {
+    width: 60.4vw;
+    height: 276vw;
+    padding-top: 11.2vw;
+  }
+  .main-container__inner__neko {
+    bottom: 25vw;
+    right: 4vw;
+    margin-bottom: 0;
+  }
+  .main-container__inner__credit {
+    font-size: 12px;
+    margin-top: 2.4em;
+    letter-spacing: 0;
+  }
+  .main-container__inner__credit__text {
+    margin-bottom: .8em;
+  }
+  .main-container__inner__credit__text a {
+    color: #d23332;
+  }
+  .main-container__inner__credit small {
+    display: block;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .main-container__buttons {
+    left: 0;
+    width: 100vw;
+    height: 28vw;
+    gap: 3.6vw;
+    padding-bottom: 0;
+  }
+  .main-container__buttons__item img {
+    width: 44vw;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
