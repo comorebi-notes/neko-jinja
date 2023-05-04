@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
 :root {
-  --omikuji-block-height: calc((100vh * 1080 / 1840) * .2005);
+  --omikuji-block-height: calc((100vh * 1080 / 1840) * .207);
   --animation-ease-out-custom: cubic-bezier(0.010, 0.275, 0.050, 1.000);
 }
 ::-webkit-scrollbar {
@@ -82,7 +82,7 @@ html, body {
   position: relative;
   z-index: 5;
   width: calc((100vh * 1080 / 1840) * .59);
-  height: calc((100vh * 1080 / 1840) * 2.5);
+  height: calc((100vh * 1080 / 1840) * 2.75);
   padding-top: 12%;
   margin: 0 auto;
 }
@@ -131,6 +131,7 @@ html, body {
 .main-container__inner__omikuji--11 { background-image: url("images/result/omikuji_11.png") }
 .main-container__inner__omikuji--12 { background-image: url("images/result/omikuji_12.png") }
 .main-container__inner__omikuji--13 { background-image: url("images/result/omikuji_13.png") }
+.main-container__inner__omikuji--14 { background-image: url("images/result/omikuji_14.png") }
 .main-container__inner__omikuji__part-1 { background-position: 100% 0; }
 .main-container__inner__omikuji__part-2 { background-position: 100% calc(var(--omikuji-block-height) * -1); }
 .main-container__inner__omikuji__part-3 { background-position: 100% calc(var(--omikuji-block-height) * -2); }
@@ -178,11 +179,19 @@ html, body {
   bottom: 0;
   right: 4%;
   z-index: 10;
-  width: 32%;
+  width: 40%;
   margin-bottom: 26%;
   animation: fadein-delay .8s ease-in-out 2.4s both;
   pointer-events: none;
 }
+.main-container__inner__neko--03 { right: 3%; width: 42% }
+.main-container__inner__neko--05 { right: 3%; width: 45% }
+.main-container__inner__neko--07 { right: 8%; width: 32% }
+.main-container__inner__neko--08 { right: 7%; width: 34% }
+.main-container__inner__neko--09 { right: 5%; width: 34% }
+.main-container__inner__neko--12 { right: 4%; width: 40% }
+.main-container__inner__neko--13 { right: 3%; width: 45% }
+.main-container__inner__neko--14 { right: 1%; width: 46% }
 .main-container__inner__credit {
   font-family: 'RocknRoll One', sans-serif;
   font-feature-settings: "palt";
@@ -236,9 +245,10 @@ html, body {
   opacity: .8;
   top: .4rem;
 }
+
 @media screen and (max-width: 640px) {
   :root {
-    --omikuji-block-height: 20.54vw;
+    --omikuji-block-height: 21.18vw;
   }
   .main-container {
     width: 100%;

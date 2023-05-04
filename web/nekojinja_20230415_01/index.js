@@ -67,3 +67,11 @@ function handleProgress(evt) {
 function playSound(id, loop, offset) {
   return createjs.Sound.play(id, { 'interrupt': createjs.Sound.INTERRUPT_EARLY, 'loop': loop, 'offset': offset });
 }
+
+// 戻るボタンでの遷移時にリロード
+history.replaceState(null, null, null);
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    window.location.reload()
+  }
+})
