@@ -165,13 +165,13 @@ html, body {
   to { transform: translateZ(0) }
 }
 @keyframes fadein-delay {
-  0% { display: none; opacity: 0 }
-  1% { display: block; opacity: 0 }
+  0% { visibility: hidden; opacity: 0 }
+  1% { visibility: visible; opacity: 0 }
   100% { opacity: 1 }
 }
 @keyframes fadein-delay-08 {
-  0% { display: none; opacity: 0 }
-  1% { display: block; opacity: 0 }
+  0% { visibility: hidden; opacity: 0 }
+  1% { visibility: visible; opacity: 0 }
   100% { opacity: .8 }
 }
 .main-container__inner__neko {
